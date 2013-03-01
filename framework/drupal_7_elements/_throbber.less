@@ -1,0 +1,33 @@
+/**
+ * Title: Drupal 7 AJAX loader styling override
+ * Author: Fabian Meul
+ * Version: 1.0
+**/
+
+
+
+/** Dependencies: 
+    
+    *utils.less
+**/
+
+/**
+ * Config
+**/
+
+// File system config
+@throbber-path: '../images/status-active.gif';
+
+html{
+    &.js{
+        a,
+        span{
+            &.views-throbbing{
+                background:url('@{throbber-path}') no-repeat right center;
+                padding-right:18px;
+            }
+        }
+        
+        
+    }
+}

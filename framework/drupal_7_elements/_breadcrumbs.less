@@ -1,0 +1,38 @@
+/**
+ * Title: Drupal 7 breadcrumbs styling override
+ * Author: Fabian Meul
+ * Version: 1.0
+ * Version Date: 22-02-2013
+**/
+
+
+
+/** Dependencies: 
+    
+    *utils.less
+**/
+
+.breadcrumb{
+    font-family: @breadcrumb-font-family;
+    .setFontSizeLineHeightAndColor(@breadcrumb-font-size, @breadcrumb-line-height, @breadcrumb-font-color);
+    
+    a{
+        .setFontSizeLineHeightAndColor(@breadcrumb-font-size, @breadcrumb-line-height, @breadcrumb-font-color);
+        text-transform: uppercase;
+        text-decoration: none;
+        margin: 0 3px;
+        
+        &:hover,
+        &.active{
+            color: @breadcrumb-highlight-font-color;
+        }
+        
+        &:hover{
+            text-decoration: underline;
+        }
+        
+        &.active{
+            text-decoration: none;
+        }
+    }
+}

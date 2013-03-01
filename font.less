@@ -1,0 +1,124 @@
+/**
+ * Title: Project Title
+ * Description: Project Description
+ * Author: Author name
+ * Last edit by: Editor name
+ * Version: 1.0
+ * Version Date: 22-03-2013
+ */
+
+html{    
+    font-family: @base-font-family;
+    -webkit-font-smoothing: antialiased;
+    font-size: 62.5%;
+    line-height: 62.5%;
+    
+    body{
+    
+        h1{
+            &.page-title{
+                font-family: @title-font-family;
+                text-transform: uppercase;
+                .setFontSizeLineHeightAndColor(55, 65, @white);
+                
+                >span{
+                    display: inline-block;
+                    border-bottom: 6px solid @white;
+                    .box-shadow(0px, 1px, 0px, rgba(0, 0, 0, 0.3));
+                    .text-shadow(0px, 1px, 0px, rgba(0, 0, 0, 0.3));
+                    max-width: 750px;
+                    
+                    //text-decoration: underline;
+                }
+            }
+        }
+        
+        .region-sidebar-second{
+            h2{
+                .setFontSizeAndLineHeight(20, 28);
+                margin-bottom: 10px;
+            }
+        }
+        
+        h2,
+        h2 a{
+            margin-bottom: 10px;
+            
+            
+            font-weight: bold;
+            .setFontSizeLineHeightAndColor(25, 32, @blue);
+            text-decoration: none;
+            
+            >a,
+            &:visited,
+            &:link{
+                color: @blue;
+                text-decoration: none;
+            }
+        }
+        
+        h3,
+        h3 a{
+            font-weight: bold;
+            .setFontSizeLineHeightAndColor(28, 32, @white);
+            text-decoration: none;
+            text-transform: uppercase;
+            
+            >a{
+                //color: @white;
+                border-bottom: 3px solid @white;
+                .box-shadow(0px, 1px, 0px, rgba(0, 0, 0, 0.3));
+                .text-shadow(0px, 1px, 0px, rgba(0, 0, 0, 0.3));
+            }
+        }
+        
+        h4,
+        h4 a{
+            font-weight: bold;
+            .setFontSizeLineHeightAndColor(16, 24, @darkGray);
+            text-decoration: none;
+            
+            >a,
+            &:visited,
+            &:link{
+                color: @darkGray;
+                text-decoration: none;
+            }
+        }
+        
+        p, label{
+            .setFontSizeLineHeightAndColor(@base-font-size, @base-line-height, @base-font-color);
+            font-family: @base-font-family;
+            margin: @paragraph-margin;
+            
+            b, strong{
+                font-weight: bold;
+                color: @orange;
+            }
+            
+            a{
+                color: @link-color;
+                text-decoration: underline;
+                .setFontSizeAndLineHeight(@base-font-size, @base-line-height);
+                
+                &:hover{
+                    color: @link-color-hover;
+                }
+            }
+        }
+        
+        a{
+            color: @link-color;
+            text-decoration: none;
+            
+            &:hover{
+                color: @link-color-hover;
+            }
+        }        
+        
+        #zone-menu-wrapper{
+            font-weight: 700;
+            .setFontSizeLineHeightAndColor(15, 22, @darkGray);
+        }
+    }
+}

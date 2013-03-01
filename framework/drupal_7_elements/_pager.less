@@ -1,0 +1,123 @@
+/**
+ * Title: Drupal 7 pager styling override
+ * Author: Fabian Meul
+ * Version: 1.0
+ * Version Date: 22-02-2013
+**/
+
+
+
+/** Dependencies: 
+    
+    *utils.less
+**/
+
+/**
+ * Config
+**/
+
+.item-list{
+    ul{
+        &.pager{
+            margin-top: 20px !important;
+            
+            .clearfix();
+            li{
+                padding: 0;
+                //background: none !important;
+                //border: none !important;
+                float: left;
+                margin-right: @pager-margin;
+                
+                a{
+                    text-decoration: none;
+                    .setFontSizeAndLineHeight(@pager-font-size, @pager-line-height);
+                    padding: @pager-padding;
+                    
+                    font-weight: @pager-font-weight;
+                    text-decoration: none;  
+                    text-align: center; 
+                    display: block;
+                }
+                
+                &.pager-current{
+                    // Font
+                    .setFontSizeLineHeightAndColor(@pager-font-size, @pager-line-height, @pager-highlight-font-color);
+                    .text-shadow(0px, 1px, 1px, rgba(0,0,0,0.5));
+                    
+                    // Box
+                    border: @pager-highlight-border;
+                    .gradient(top, #1C8AC0, #0274AF);
+                    .border-radius(@pager-border-radius);
+                    .inset-box-shadow(0, 1px, 0, rgba(255,255,255,0.25));
+                    text-align: center;
+                    display: block;
+                    padding: @pager-padding;
+                }
+                
+                &.pager-first,
+                &.pager-previous,
+                &.pager-next,
+                &.pager-last{
+                    a{
+                        // Font
+                        color: @pager-highlight-font-color;
+                        .text-shadow(0px, 1px, 1px, rgba(0,0,0,0.5));
+                        
+                        // Box
+                        border: @pager-highlight-border;
+                        .gradient(top, #18709c, #025a86);
+                        .border-radius(@pager-border-radius);
+                        .inset-box-shadow(0, 1px, 0, rgba(255,255,255,0.25));
+                        
+                        &:hover{
+                            .gradient(top, #1C8AC0, #0274AF);
+                        } 
+                    }
+                }
+                
+                &.first{
+                    margin-left: 0;
+                }
+                
+                &.pager-first{
+                  
+                }
+                
+                &.pager-previous{
+                
+                }
+                
+                &.pager-item{
+                    a{
+                        // Font
+                        color: @pager-font-color;
+                        .text-shadow(0px, 1px, 1px, rgba(255,255,255,1));
+                        
+                        // Box
+                        border: @pager-border;
+                        .gradient(top, #ffffff, #dedede);
+                        .border-radius(@pager-border-radius);
+                        .inset-box-shadow(0, 1px, 0, rgba(255,255,255,0.55));
+                        
+                        &:hover{
+                            .gradient(top, #dedede, #ffffff);
+                        } 
+                    }
+                }
+                
+                &.pager-next{
+                  
+                }
+                
+                &.pager-last{
+                  
+                }
+                
+                &.last{
+                    margin-right: 0;
+                }
+            }
+        } 
+    }
+}

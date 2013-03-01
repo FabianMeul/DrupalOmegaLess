@@ -1,0 +1,135 @@
+/**
+ * General Less Project utilities file
+ *
+ * Author: Fabian Meul
+ * Version: 1.0
+ * Version Date: 22-02-2013
+ */
+
+
+/* !Clearfix */
+.clearfix (){
+  :after {
+  	content: ".";
+  	display: block;
+  	clear: both;
+  	visibility: hidden;
+  	line-height: 0;
+  	height: 0;
+  }
+ 
+	display: inline-block;
+}
+
+/* !Define border radius */
+.border-radius (@radius: 5px) {
+	-webkit-border-radius: @radius !important;
+	-moz-border-radius: @radius !important;
+	border-radius: @radius !important;
+}
+
+/* !Define custom border radius */
+.border-radius-custom (@topleft: 5px, @topright: 5px, @bottomleft: 5px, @bottomright: 5px) {
+  -webkit-border-radius: @topleft @topright @bottomright @bottomleft;
+	-moz-border-radius: @topleft @topright @bottomright @bottomleft;
+	border-radius: @topleft @topright @bottomright @bottomleft;
+}
+
+/* !Define opacity */
+.opacity (@opacity: 1) {
+  opacity: @opacity;
+  @var: (@opacity*100);
+  /* IE 8 */
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=@var);
+  /* IE 5-7 */
+  filter: alpha(opacity=@var);
+}
+
+/* !Define a box shadow */
+.box-shadow (@x: 0px, @y: 3px, @blur: 5px, @color: rgba(0, 0, 0, 0.4)) {
+	-webkit-box-shadow: @x @y @blur @color;
+	-moz-box-shadow: @x @y @blur @color;
+	box-shadow: @x @y @blur @color;
+}
+
+/* !Define an inset box shadow */
+.inset-box-shadow (@x: 0px, @y: 3px, @blur: 5px, @color: rgba(0, 0, 0, 0.5)) {
+	-webkit-box-shadow: inset @x @y @blur @color;
+	-moz-box-shadow: inset @x @y @blur @color;
+	box-shadow: inset @x @y @blur @color;
+}
+
+/* !Define a text shadow */
+.text-shadow (@x: 1px, @y: 1px, @blur: 1px, @color: rgba(0, 0, 0, 0.5)) {
+    text-shadow: @x @y @blur @color;
+}
+
+/* !Define a transition */
+.transition (@prop: all, @time: 0.15s, @ease: linear) {
+	-webkit-transition: @prop @time @ease;
+	-moz-transition: @prop @time @ease;
+	-o-transition: @prop @time @ease;
+	-ms-transition: @prop @time @ease;
+	transition: @prop @time @ease;
+}
+
+/* !Define a transition delay */
+.transition-delay (@delay: 1s) {
+  transition-delay: @delay;
+  -moz-transition-delay: @delay; /* Firefox 4 */
+  -webkit-transition-delay: @delay; /* Safari and Chrome */
+  -o-transition-delay: @delay; /* Opera */
+}
+
+/* !Define a transform */
+.transform (@rotate: 90deg, @scale: 1, @skew: 1deg, @translate: 10px) {
+	-webkit-transform: rotate(@rotate) scale(@scale) skew(@skew) translate(@translate);
+	-moz-transform: rotate(@rotate) scale(@scale) skew(@skew) translate(@translate);
+	-o-transform: rotate(@rotate) scale(@scale) skew(@skew) translate(@translate);
+	-ms-transform: rotate(@rotate) scale(@scale) skew(@skew) translate(@translate);
+	transform: rotate(@rotate) scale(@scale) skew(@skew) translate(@translate);
+}
+
+/* !Define a gradient */
+.gradient (@origin: left, @start: #ffffff, @stop: #000000) {
+	background-color: @start;
+	background: -webkit-linear-gradient(@origin, @start, @stop);
+	background: -moz-linear-gradient(@origin, @start, @stop);
+	background: -o-linear-gradient(@origin, @start, @stop);
+	background: -ms-linear-gradient(@origin, @start, @stop);
+	background: linear-gradient(@origin, @start, @stop);
+}
+
+/* !Define a quick gradient */
+.quick-gradient (@origin: left, @alpha: 0.2) {
+	background-image: -webkit-linear-gradient(@origin, rgba(0,0,0,0.0), rgba(0,0,0,@alpha));
+	background-image: -moz-linear-gradient(@origin, rgba(0,0,0,0.0), rgba(0,0,0,@alpha));
+	background-image: -o-linear-gradient(@origin, rgba(0,0,0,0.0), rgba(0,0,0,@alpha));
+	background-image: -ms-linear-gradient(@origin, rgba(0,0,0,0.0), rgba(0,0,0,@alpha));
+	background-image: linear-gradient(@origin, rgba(0,0,0,0.0), rgba(0,0,0,@alpha));
+}
+
+
+/* !Define font styles */
+.setFontSizeLineHeightAndColor (@font-size: 12, @line-height: 18, @color: #000) {
+  .setFontSizeAndLineHeight (@font-size, @line-height);
+  color: @color;
+}
+
+.setFontSizeAndLineHeight (@font-size: 12, @line-height: 18) {
+  font-size: @font-size + 0px;
+  font-size: @font-size/10 + 0rem; /* 10px x 12/10 = 12px */
+  line-height: @line-height + 0px;
+  line-height: @line-height/10 + 0rem;
+}
+
+/* !Apply Retina version if available */
+.retinaBackground(@path, @w: auto, @h: auto, @x:top, @y:left, @repeat: no-repeat, @background: transparent) {
+  background: url(@path) @x @y @repeat @background;
+  @at2x_path: ~`"@{path}".split('.').slice(0, "@{path}".split('.').length - 1).join(".") + "@2x" + "." + "@{path}".split('.')["@{path}".split('.').length - 1]`;
+
+  @media all and (-webkit-min-device-pixel-ratio : 1.5) {
+    background: url(@at2x_path) @x @y @repeat @background;
+    background-size: @w @h;
+  }  
+}

@@ -1,0 +1,62 @@
+/**
+ * Title: Drupal 7 list styling override
+ * Author: Fabian Meul
+ * Version: 1.01
+ * Version Date: 22-02-2013
+**/
+
+
+
+/** Dependencies: 
+    
+    *utils.less
+**/
+
+.region-content,
+.item-list{
+    ul{
+        .setFontSizeAndLineHeight(@base-font-size, @base-line-height);
+        margin: @paragraph-margin;
+        margin-left: 20px;
+        
+        li{
+            margin: 0;
+        }
+        
+        // Indent Level 1
+        >li{
+            list-style: @list-indent-level-1-style;
+            color: @list-indent-level-1-color;
+        }
+
+        >ul{
+            margin-bottom: 0;
+            // Indent Level 2
+            >li{
+                list-style: @list-indent-level-2-style;
+                color: @list-indent-level-2-color;
+            }
+            
+            >ul{
+                margin-bottom: 0;
+                // Indent Level 3
+                >li{
+                    list-style: @list-indent-level-3-style;
+                    color: @list-indent-level-3-color;
+                }
+            }
+        }
+    }
+    
+    // Disable the styling for view-generated lists
+    .view,
+    .contextual-links-wrapper{
+        ul{
+            margin: 0;
+            
+            li{
+                list-style: none;
+            }
+        }
+    }
+}
